@@ -13,13 +13,16 @@ var gulp = require('gulp'),
  */
 gulp.task('typescript-to-js', function() {
   //Compile all ts file into their respective js file.
-  
+
   var tsResult = gulp.src(['Vorlon/**/*.ts', 'libs/**.ts'])
-                       .pipe(typescript({ 
-                            declarationFiles: true,
-                            noExternalResolve: true, target: 'ES5'}
+                       .pipe(typescript({
+                            declarationFiles: false,
+                            removeComments: false,
+                            noExternalResolve: true,
+                            typescript: require('typescript'),
+                            target: 'ES6'}
                           ));
-  
+
    return merge([
       tsResult.dts.pipe(gulp.dest('release')),
       tsResult.js.pipe(gulp.dest('release'))
@@ -32,7 +35,7 @@ gulp.task('typescript-to-js', function() {
 gulp.task('less-to-css', function() {
   return gulp.src(['Vorlon/**/*.less'], { base : '.' })
     .pipe(less())
-    .pipe(gulp.dest(''));  
+    .pipe(gulp.dest(''));
 });
 
 /**
