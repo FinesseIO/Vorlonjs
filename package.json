@@ -38,7 +38,7 @@
     "merge2": "^0.3.5",
     "through": "^2.3.4"
   },
-    "devDependencies": {
+  "devDependencies": {
   },
   "scripts": {
     "build-server": "gulp --gulpfile=./Server/gulpfile.js --cwd=./Server",
