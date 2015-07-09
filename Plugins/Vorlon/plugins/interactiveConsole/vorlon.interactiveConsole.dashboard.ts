@@ -10,7 +10,7 @@
             }
         }
 
-        // DASHBOARD        
+        // DASHBOARD
         private _clearButton: Element;
         private _containerDiv: HTMLElement;
         public _textFilter: HTMLInputElement;
@@ -174,7 +174,7 @@
             plugin._interactiveInput.value = "document.getElementById(\"" + data.order + "\")";
         }
     };
-        
+
     class InteractiveConsoleObject {
         obj: ObjectDescriptor;
         element: HTMLElement;
@@ -324,7 +324,7 @@
                 var elt = document.createElement('DIV');
                 elt.className = 'log-message text-message';
                 this.element.appendChild(elt);
-                elt.textContent = msg;
+                //elt.textContent = msg;
             } else {
                 var obj = new InteractiveConsoleObject(this.element, <ObjectDescriptor>msg, true);
                 this.objects.push(obj);

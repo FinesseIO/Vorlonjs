@@ -8,7 +8,7 @@
 declare module 'socket.io' {
     var server: SocketIOStatic;
 
-    export = server;
+  //  export server;
 }
 
 interface SocketIOStatic {
@@ -42,7 +42,7 @@ declare module SocketIO {
         on(event: string, listener: Function): Namespace;
     }
 
-    interface Namespace extends NodeJS.EventEmitter {
+    interface Namespace {
         name: string;
         connected: { [id: string]: Socket };
         use(fn: Function): Namespace;
@@ -81,4 +81,3 @@ declare module SocketIO {
         request: any;
     }
 }
-
