@@ -3,7 +3,12 @@ var gulp = require('gulp'),
 
 gulp.task('typescript-to-js', function() {
   var tsResult = gulp.src(['./**/*.ts', '!./node_modules', '!./node_modules/**'], { base: './' })
-                      .pipe(typescript({ noExternalResolve: true, target: 'ES5', module: 'commonjs' }));
+                      .pipe(typescript({ declarationFiles: false,
+                      removeComments: false,
+                      noExternalResolve: true,
+                      typescript: require('typescript'),
+                      target: 'ES6',
+                      module: 'commonjs' }));
 
   return tsResult.js
             .pipe(gulp.dest('.'));
